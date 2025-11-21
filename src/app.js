@@ -1,11 +1,34 @@
-import "bootstrap";
-import "./style.css";
+
+const choices = ["rock", "paper", "scissors", "lizard", "spock"];
 
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+const rules = {
+    rock: ["scissors", "lizard"],
+    paper: ["rock", "spock"],
+    scissors: ["paper", "lizard"],
+    lizard: ["spock", "paper"],
+    spock: ["scissors", "rock"]
 };
+
+
+const jugar = (userChoice) => {
+
+
+    const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+    console.log(`Mi eleccion: ${userChoice}`);
+    console.log(`Elección de la computadora: ${computerChoice}`);
+
+    if (userChoice === computerChoice) {
+        return "Empate";
+    } else if (rules[userChoice].includes(computerChoice)) {
+
+        return "Ganaste";
+    } else {
+        return "Perdiste";
+    }
+};
+
+const userSelection = "rock";
+const result = jugar(userSelection);
+console.log(result);
