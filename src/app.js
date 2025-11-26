@@ -13,20 +13,16 @@ const rules = {
 
 const jugar = (userChoice) => {
 
-
     const computerChoice = choices[Math.floor(Math.random() * choices.length)];
 
     console.log(`Mi eleccion: ${userChoice}`);
     console.log(`Elección de la computadora: ${computerChoice}`);
 
-    if (userChoice === computerChoice) {
-        return "Empate";
-    } else if (rules[userChoice].includes(computerChoice)) {
+    if (userChoice === computerChoice) return "Empate";
 
-        return "Ganaste";
-    } else {
-        return "Perdiste";
-    }
+    if (rules[userChoice].includes(computerChoice)) return "Ganaste";
+
+    return "Perdiste";
 };
 
 const userSelection = "rock";
